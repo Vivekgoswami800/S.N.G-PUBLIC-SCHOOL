@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel | S.N.G Public School</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body style="background:var(--paper-soft); min-height:100vh;">
+
+<header>
+  <div class="nav-wrap">
+    <div class="logo"><img src="logo.png" alt="School Logo" style="width:40px; height:40px; border-radius:50%; object-fit:cover;"> S.N.G Public School</div>
+    <nav><ul><li><a href="/index.html">← Back to Website</a></li></ul></nav>
+  </div>
+</header>
+
+<!-- LOGIN SCREEN -->
+<div class="admin-login-box" id="loginBox">
+  <h2>Admin Login</h2>
+  <p class="sub">School staff only. Default: admin / sng@2026</p>
+  <div class="admin-error" id="loginError"></div>
+  <input type="text" id="loginUsername" placeholder="Username">
+  <input type="password" id="loginPassword" placeholder="Password">
+  <button onclick="doLogin()">Login</button>
+</div>
+
+<!-- DASHBOARD (hidden until logged in) -->
+<div class="admin-dashboard" id="dashboard" style="display:none;">
+  <div class="admin-top">
+    <h2>Welcome, Admin</h2>
+    <button class="logout-btn" onclick="doLogout()">Logout</button>
+  </div>
+
+  <div class="admin-tabs">
+    <div class="admin-tab active" data-tab="notices">Notices</div>
+    <div class="admin-tab" data-tab="students">Results & Attendance</div>
+    <div class="admin-tab" data-tab="gallery">Gallery</div>
+    <div class="admin-tab" data-tab="photos">Site Photos</div>
+    <div class="admin-tab" data-tab="messages">Contact Messages</div>
+    <div class="admin-tab" data-tab="account">Account</div>
+  </div>
+
+  <!-- NOTICES TAB -->
+  <div class="admin-panel active" id="tab-notices">
+    <div class="admin-form">
+      <div class="field"><label>Date (e.g. 15 JUL)</label><input type="text" id="noticeDate"></div>
+      <div class="field" style="flex:2;"><label>Title</label><input type="text" id="noticeTitle"></div>
+      <div class="field" style="flex:3;"><label>Description</label><input type="text" id="noticeDesc"></div>
+      <button onclick="addNotice()">Add Notice</button>
+    </div>
+    <table class="admin-table"><thead><tr><th>Date</th><th>Title</th><th>Description</th><th></th></tr></thead><tbody id="noticeTableBody"></tbody></table>
+  </div>
+
+  <!-- STUDENTS TAB -->
+  <div class="admin-panel" id="tab-students">
+    <div class="admin-form">
+      <div class="field"><label>Roll No.</label><input type="text" id="sRoll"></div>
+      <div class="field"><label>Name</label><input type="text" id="sName"></div>
+      <div class="field"><label>Class</label><input type="text" id="sClass"></div>
+      <div class="field"><label>Attendance %</label><input type="number" id="sAttendance"></div>
+      <div class="field" style="flex:3;"><label>Subjects (format: Hindi:85, Maths:90)</label><input type="text" id="sSubjects"></div>
+      <button onclick="addStudent()">Save Student</button>
+    </div>
+    <table class="admin-table"><thead><tr><th>Roll No.</th><th>Name</th><th>Class</th><th>Attendance</th><th></th></tr></thead><tbody id="studentTableBody"></tbody></table>
+  </div>
+
+  <!-- GALLERY TAB -->
+  <div class="admin-panel" id="tab-gallery">
+    <div class="admin-form">
+      <div class="field"><label>Photo</label><input type="file" id="galleryFile" accept="image/*"></div>
+      <div class="field" style="flex:2;"><label>Caption</label><input type="text" id="galleryCaption"></div>
+      <button onclick="addGalleryPhoto()">Upload</button>
+    </div>
+    <div class="gallery-grid" id="adminGalleryGrid"></div>
+  </div>
+
+  <!-- SITE PHOTOS TAB -->
+  <div class="admin-panel" id="tab-photos">
+    <h3 style="margin-bottom:10px;">School Logo</h3>
+    <div class="admin-form">
+      <div class="field"><label>Upload logo image</label><input type="file" id="logoFile" accept="image/*"></div>
+      <button onclick="uploadSitePhoto('logo','logoFile')">Upload</button>
+    </div>
+
+    
+    <h3 style="margin-bottom:10px;">School Main Photo (Homepage)</h3>
+    <div class="admin-form">
+      <div class="field"><label>Upload new photo</label><input type="file" id="heroFile" accept="image/*"></div>
+      <button onclick="uploadSitePhoto('hero_photo','heroFile')">Upload</button>
+    </div>
+    <h3 style="margin:24px 0 10px;">Fee Payment QR Code</h3>
+    <div class="admin-form">
+      <div class="field"><label>Upload UPI QR image</label><input type="file" id="qrFile" accept="image/*"></div>
+      <button onclick="uploadSitePhoto('qr_photo','qrFile')">Upload</button>
+    </div>
+    <p class="status-msg" id="photoStatus"></p>
+  </div>
+
+  <!-- MESSAGES TAB -->
+  <div class="admin-panel" id="tab-messages">
+    <table class="admin-table"><thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Message</th><th>Date</th><th></th></tr></thead><tbody id="messageTableBody"></tbody></table>
+  </div>
+
+  <!-- ACCOUNT TAB -->
+  <div class="admin-panel" id="tab-account">
+    <div class="admin-form" style="max-width:400px;">
+      <div class="field" style="flex:1 0 100%;"><label>New Password</label><input type="password" id="newPassword"></div>
+      <button onclick="changePassword()">Update Password</button>
+    </div>
+    <p class="status-msg" id="accountStatus"></p>
+  </div>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>

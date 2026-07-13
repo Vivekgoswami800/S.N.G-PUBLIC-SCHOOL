@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S.N.G Public School | Shardhanand Goswami Public School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <div class="logo" id="logoSlot"><span class="logo-badge">SNG</span> S.N.G Public School</div>
+    
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#academics">Academics</a></li>
+        <li><a href="#notices">Notices</a></li>
+        <li><a href="#results">Result/Attendance</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#fees">Fee Payment</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="/admin.html" style="opacity:0.6;">Admin Login</a></li>
+      </ul>
+    </nav>
+    <button class="menu-toggle" onclick="const n=document.querySelector('nav ul'); n.style.display = n.style.display==='flex' ? 'none' : 'flex'">☰</button>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div>
+      <span class="eyebrow">Gaurav Nagar, Chopan, Sonbhadra</span>
+      <h1>Shardhanand Goswami <span>Public School</span></h1>
+      <p>S.N.G Public School has been shaping students of Chopan town from Nursery to Class 12th — with discipline, care, and a focus on real learning.</p>
+      <div class="hero-sub">📍 Gaurav Nagar, Chopan, Sonbhadra, Uttar Pradesh – 231205</div>
+      <div class="btn-row">
+        <a href="#admissions-note" class="btn btn-primary">Admission Enquiry</a>
+        <a href="https://wa.me/919455565405" target="_blank" class="btn btn-whatsapp">💬 WhatsApp Us</a>
+      </div>
+    </div>
+    <div class="hero-photo" id="heroPhotoSlot">
+      <div class="upload-placeholder"><span>📷 School Photo</span><small>Admin can add this from the Admin Panel</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-inner">
+    <div class="section-head"><span class="section-tag">About Us</span><h2>A school built for Chopan's children</h2></div>
+    <div class="about-grid">
+      <div>
+        <p>S.N.G Public School (Shardhanand Goswami Public School) is located in Gaurav Nagar, Chopan, in Sonbhadra district of Uttar Pradesh. We offer education from Nursery to Class 12th, with a focus on discipline, strong fundamentals, and all-round development for every child in our town.</p>
+        <p>We believe a good school isn't judged only by results — it's judged by how ready its students are for the world outside the classroom. That's the standard we hold ourselves to, every single day.</p>
+        <p id="admissions-note"><strong>For admission enquiries</strong>, call <strong>+91 94555 65405</strong> or message us on WhatsApp — our office will guide you through the process and required documents.</p>
+      </div>
+      <div class="principal-card">
+        <div class="p-photo">DK</div>
+        <h3>Dhirendra Kumar</h3>
+        <div class="role">Principal, S.N.G Public School</div>
+        <p>"Our aim is simple — every child who studies here should leave not just with marks on a report card, but with the confidence to face whatever comes next. That is the standard of a top-level school, and that is what we are building here in Chopan."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="academics">
+  <div class="section-inner">
+    <div class="section-head"><span class="section-tag">Academics</span><h2>Nursery to Class 12th</h2></div>
+    <div class="card-grid">
+      <div class="subject-card"><h3>Nursery – Class II</h3><p>Foundation years focused on language, numbers, and good habits through friendly, activity-based teaching.</p></div>
+      <div class="subject-card"><h3>Class III – V</h3><p>Building strong basics in Hindi, English, Maths, and EVS with regular practice and attention.</p></div>
+      <div class="subject-card"><h3>Class VI – VIII</h3><p>Science, Social Science, Maths, and languages deepen, with computer basics introduced.</p></div>
+      <div class="subject-card"><h3>Class IX – X</h3><p>Full board-pattern preparation across all core subjects, with regular tests and doubt sessions.</p></div>
+      <div class="subject-card"><h3>Class XI – XII</h3><p>Stream-based teaching (Science / Commerce / Arts) with focused board exam preparation.</p></div>
+      <div class="subject-card"><h3>Sports & Activities</h3><p>Daily physical activity, plus yearly sports events and cultural programs for every age group.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="notices">
+  <div class="section-inner">
+    <div class="section-head"><span class="section-tag">Notice Board</span><h2>Latest updates for students & parents</h2></div>
+    <div class="notice-list" id="noticeList"><p style="padding:16px;">Loading notices...</p></div>
+  </div>
+</section>
+
+<section id="results">
+  <div class="section-inner">
+    <div class="section-head"><span class="section-tag">Result & Attendance</span><h2>Check using Roll Number</h2></div>
+    <div class="lookup-box">
+      <input type="text" id="rollInput" placeholder="Enter Roll Number (try: 101, 102, 103)">
+      <button onclick="lookupRoll()">Check Result / Attendance</button>
+      <div class="lookup-result" id="lookupResult"></div>
+    </div>
+    <p class="note-line">This looks up real records from the school database. Ask the school office for your child's roll number if you don't have it.</p>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="section-inner">
+    <div class="section-head"><span class="section-tag">Gallery</span><h2>School life — photos & activities</h2></div>
+    <div class="gallery-grid" id="galleryGrid"><p style="padding:16px;">Loading gallery...</p></div>
+  </div>
+</section>
+
+<section id="fees">
+  <div class="section-inner">
+    <div class="section-head"><span class="section-tag">Fee Payment</span><h2>Pay school fees online</h2></div>
+    <div class="fees-grid">
+      <div class="qr-box">
+        <div class="hero-photo" id="qrSlot" style="aspect-ratio:1/1;">
+          <div class="upload-placeholder"><span>📱 UPI QR Code</span><small>Admin can add this from the Admin Panel</small></div>
+        </div>
+        <p style="margin-top:12px; font-size:0.85rem; color:rgba(34,40,31,0.6);">Scan with any UPI app (GPay, PhonePe, Paytm)</p>
+      </div>
+      <div>
+        <h3 style="font-size:1.2rem; margin-bottom:8px;">How to pay fees</h3>
+        <ul>
+          <li>Scan the QR code with any UPI app</li>
+          <li>Enter the fee amount as informed by the school office</li>
+          <li>After payment, save the payment screenshot</li>
+          <li>Send the screenshot to our WhatsApp number with your child's name, class, and roll number</li>
+          <li>Office will confirm and update your fee record</li>
+        </ul>
+        <a href="https://wa.me/919455565405" target="_blank" class="btn btn-whatsapp" style="margin-top:16px;">💬 Send Payment Screenshot on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-head"><span class="section-tag">Contact</span><h2>Visit or reach us</h2></div>
+    <div class="contact-grid">
+      <div>
+        <div class="info-row"><div class="info-icon">📍</div><div><strong>Address</strong><br>S.N.G Public School, Gaurav Nagar, Chopan, Sonbhadra, Uttar Pradesh – 231205</div></div>
+        <div class="info-row"><div class="info-icon">📞</div><div><strong>Phone / WhatsApp</strong><br>+91 94555 65405</div></div>
+        <div class="info-row"><div class="info-icon">✉️</div><div><strong>Email</strong><br>sngpublicschool.chopan@gmail.com</div></div>
+        <div class="info-row"><div class="info-icon">🕘</div><div><strong>Office Hours</strong><br>Monday – Saturday, 8:00 AM – 3:00 PM</div></div>
+        <form id="contactForm" style="margin-top:24px; display:flex; flex-direction:column; gap:12px;">
+          <input type="text" id="cName" placeholder="Your name" required style="padding:12px; border-radius:6px; border:1px solid var(--line);">
+          <input type="email" id="cEmail" placeholder="Email (optional)" style="padding:12px; border-radius:6px; border:1px solid var(--line);">
+          <input type="tel" id="cPhone" placeholder="Phone (optional)" style="padding:12px; border-radius:6px; border:1px solid var(--line);">
+          <textarea id="cMessage" placeholder="Your message" required rows="3" style="padding:12px; border-radius:6px; border:1px solid var(--line); font-family:inherit;"></textarea>
+          <button type="submit" class="btn btn-primary" style="border:none;">Send Message</button>
+          <span id="contactStatus" style="font-size:0.85rem; color:var(--green-ok);"></span>
+        </form>
+      </div>
+      <div class="map-embed">
+        <iframe src="https://maps.google.com/maps?q=S.N.G%20PUBLIC%20SCHOOL%2C%20G2FC%2B822%2C%20Chopan%2C%20Shendhuriya%2C%20Uttar%20Pradesh%20231205&t=&z=16&ie=UTF8&iwloc=&output=embed" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<a href="https://wa.me/919455565405" target="_blank" class="whatsapp-float">💬</a>
+
+
+
+<footer>
+  <div style="display:flex; justify-content:center; gap:16px; margin-bottom:14px;">
+    <a href="https://www.facebook.com/share/1DySAxegLu/" target="_blank" style="width:38px; height:38px; border-radius:50%; background:var(--mustard); display:flex; align-items:center; justify-content:center;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#1F2A24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+    </a>
+    <a href="https://www.instagram.com/sngian_edu?utm_source=qr&igsh=emVuYnl5djBsZGZm" target="_blank" style="width:38px; height:38px; border-radius:50%; background:var(--mustard); display:flex; align-items:center; justify-content:center;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#1F2A24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.98-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.198-4.354-2.617-6.78-6.98-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    </a>
+  </div>
+  © 2026 S.N.G Public School, Chopan, Sonbhadra. Notices, results, gallery, and messages are now stored in a real database, visible to every visitor.
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
