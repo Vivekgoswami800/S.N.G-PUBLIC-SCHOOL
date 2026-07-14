@@ -4,6 +4,17 @@
 // gallery, site photos, and contact messages.
 // ============================================================
 
+// ---------- Load logo (same one uploaded via Site Photos tab) ----------
+async function loadAdminLogo() {
+  const res = await fetch('/api/settings/logo');
+  const data = await res.json();
+  if (data.value) {
+    document.getElementById('adminLogoSlot').innerHTML =
+      '<img src="/uploads/' + data.value + '" alt="School Logo" style="width:40px; height:40px; border-radius:50%; object-fit:cover;"> S.N.G Public School';
+  }
+}
+loadAdminLogo();
+
 // ---------- Check if already logged in ----------
 async function checkSession() {
   const res = await fetch('/api/session');
@@ -102,7 +113,6 @@ async function addStudent() {
   const attendance = parseInt(document.getElementById('sAttendance').value) || 0;
   const subjectsRaw = document.getElementById('sSubjects').value.trim();
   if (!roll_no || !name || !className) { alert('Roll number, name and class are required'); return; }
-  // Parse "Hindi:85, Maths:90" into [["Hindi",85],["Maths",90]]
   const subjects = subjectsRaw ? subjectsRaw.split(',').map(pair => {
     const [subj, marks] = pair.split(':').map(x => x.trim());
     return [subj, parseInt(marks) || 0];
@@ -146,7 +156,7 @@ async function deleteGalleryPhoto(id) {
   loadGalleryAdmin();
 }
 
-// ---------- Site photos (hero + QR) ----------
+// ---------- Site photos (logo + hero + QR) ----------
 async function uploadSitePhoto(key, inputId) {
   const fileInput = document.getElementById(inputId);
   if (!fileInput.files[0]) { alert('Please choose a photo'); return; }
@@ -155,6 +165,9 @@ async function uploadSitePhoto(key, inputId) {
   const res = await fetch('/api/settings/' + key, { method: 'POST', body: formData });
   const status = document.getElementById('photoStatus');
   status.textContent = res.ok ? 'Photo updated! Refresh the main website to see it.' : 'Upload failed.';
+  if (res.ok && key === 'logo') {
+    loadAdminLogo();
+  }
 }
 
 // ---------- Messages ----------
